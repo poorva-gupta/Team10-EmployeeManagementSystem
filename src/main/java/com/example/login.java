@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.*;
 public class login extends JFrame implements ActionListener{
@@ -91,6 +92,24 @@ public class login extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == login){
+            try{
+                String username = tusername.getText();
+                String password= tpassword.getText();
+                ConnectionManager conn = new ConnectionManager();
+
+                String query="select * from login where username = '"+username +"'and password = '"+password+"'";
+                ResultSet resultSet= conn.statement.executeQuery(query);
+                if(resultSet.next()){
+                    setVisible(false);
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"Invalid username or password");
+                }
+
+            }catch(Exception E){
+                E.printStackTrace();
+
+            }
 
         } else if (e.getSource() == back){
             System.exit(90);

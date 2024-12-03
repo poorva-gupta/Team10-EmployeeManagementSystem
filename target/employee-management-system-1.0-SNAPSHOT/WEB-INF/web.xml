@@ -1,0 +1,11 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <servlet>
+        <servlet-name>CreateEmployee</servlet-name>
+        <servlet-class>com.example.employee.servlet.CreateEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateEmployee</servlet-name>
+        <url-pattern>/createEmployee</url-pattern>
+    </servlet-mapping>
+    <!-- Repeat for Update, Retrieve, Delete -->
+</web-app>
